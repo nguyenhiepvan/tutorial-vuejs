@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title>Excersie Vue JS 01</title>
+</head>
+
+<body>
+	<div id="excersie">
+		<p>VueJS is pretty cool - {{name}} - {{age}}</p>
+		<p>{{age * 3}}</p>
+		<p>{{getRandom()}}</p>
+		<div>
+			<img v-bind:src="img">
+		</div>
+		<div>
+			<input type="text" v-on:input="changeName">
+		</div>
+	</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+	new Vue({
+        el: '#excersie', // 1
+        data: { // 2
+            name: 'Nguyễn Văn Hiệp', // 3
+            age: 21,
+            img: 'https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg',
+        },
+        methods:{
+        	getRandom: function () {
+        		return Math.random();
+        	},
+        	changeName:function (event) {
+        		this.name = event.target.value;
+        		return this.name;
+        	}
+        }
+    });
+</script>
+</html>
